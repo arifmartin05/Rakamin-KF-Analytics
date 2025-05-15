@@ -1,16 +1,18 @@
--- -- -- -- -- from data rakamin-kf-analytics-458515.kimia_farma.kf_abc1; buat Top 5 Cabang Dengan Rating Tertinggi, namun Rating Transaksi Terendah
+-- from data rakamin-kf-analytics-458515.kimia_farma.kf_abc1; buat Top 5 Cabang; nama cabang;kotanya Dengan Rating Tertinggi, namun total Transaksi Terendah
 
 
 SELECT
   branch_name,
+  kota,
   AVG(rating) AS average_rating,
-  MIN(rating) AS min_rating
+  COUNT(transaction_id) AS total_transactions
 FROM
   `rakamin-kf-analytics-458515`.`kimia_farma`.`kf_abc1`
 GROUP BY
-  branch_name
+  branch_name,
+  kota
 ORDER BY
   average_rating DESC,
-  min_rating ASC
+  total_transactions ASC
 LIMIT
   5;
