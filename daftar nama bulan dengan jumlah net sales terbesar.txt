@@ -1,0 +1,14 @@
+-- -- -- -- -- -- -- -- -- from data rakamin-kf-analytics-458515.kimia_farma.kf_abc1; buat daftar nama bulan dengan jumlah net sales terbesar
+
+
+SELECT
+  EXTRACT(MONTH
+  FROM
+    date) AS month,
+  SUM(nett_sales) AS total_nett_sales
+FROM
+  `rakamin-kf-analytics-458515`.`kimia_farma`.`kf_abc1`
+GROUP BY
+  month
+ORDER BY
+  total_nett_sales DESC;

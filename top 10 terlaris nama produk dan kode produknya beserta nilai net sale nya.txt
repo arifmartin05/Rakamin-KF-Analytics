@@ -1,0 +1,15 @@
+-- -- -- -- from data rakamin-kf-analytics-458515.kimia_farma.kf_abc1; buat top 10 terlaris nama produk dan kode produknya beserta nilai net sale nya
+
+SELECT
+  product_name,
+  product_id,
+  SUM(nett_sales) AS total_nett_sales
+FROM
+  `rakamin-kf-analytics-458515`.`kimia_farma`.`kf_abc1`
+GROUP BY
+  product_name,
+  product_id
+ORDER BY
+  total_nett_sales DESC
+LIMIT
+  10;

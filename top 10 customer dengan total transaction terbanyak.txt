@@ -1,0 +1,14 @@
+-- from data rakamin-kf-analytics-458515.kimia_farma.kf_abc1; buat top 10 customer dengan total transaction terbanyak
+
+
+SELECT
+  customer_name,
+  COUNT(*) AS total_transactions
+FROM
+  `rakamin-kf-analytics-458515`.`kimia_farma`.`kf_abc1`
+GROUP BY
+  customer_name
+ORDER BY
+  total_transactions DESC
+LIMIT
+  10;

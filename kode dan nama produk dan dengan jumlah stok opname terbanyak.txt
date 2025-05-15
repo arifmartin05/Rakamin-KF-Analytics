@@ -1,0 +1,16 @@
+-- -- -- -- -- -- -- -- from data rakamin-kf-analytics-458515.kimia_farma.kf_abc1; buat 10 daftar kode dan nama produk dan dengan jumlah stok opname terbanyak
+
+
+SELECT
+  product_id,
+  product_name,
+  SUM(opname_stock) AS total_opname_stock
+FROM
+  `rakamin-kf-analytics-458515`.`kimia_farma`.`kf_abc1`
+GROUP BY
+  product_id,
+  product_name
+ORDER BY
+  total_opname_stock DESC
+LIMIT
+  10;

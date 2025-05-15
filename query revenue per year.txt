@@ -1,0 +1,14 @@
+from data rakamin-kf-analytics-458515.kimia_farma.kf_abc1; buat perbandingan revenue dari tahun ke tahun
+
+SELECT
+  EXTRACT(YEAR
+  FROM
+    date) AS year,
+  SUM(nett_sales) AS total_revenue
+FROM
+  `rakamin-kf-analytics-458515`.`kimia_farma`.`kf_abc1`
+GROUP BY
+  year
+ORDER BY
+  year;
+

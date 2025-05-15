@@ -1,0 +1,20 @@
+-- top 5 cabang dan kotanya dengan net profit terendah lengkap dengan total net profitnya
+
+
+SELECT
+  t0.branch_name,
+  t0.kota,
+  SUM(kf_abc1.nett_profit) AS total_net_profit
+FROM
+  `rakamin-kf-analytics-458515`.`kimia_farma`.`kf_abc1` AS kf_abc1
+INNER JOIN
+  `rakamin-kf-analytics-458515`.`kimia_farma`.`kf_kantor_cabang` AS t0
+ON
+  kf_abc1.branch_id = t0.branch_id
+GROUP BY
+  1,
+  2
+ORDER BY
+  total_net_profit ASC
+LIMIT
+  5;

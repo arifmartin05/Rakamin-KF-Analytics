@@ -1,0 +1,15 @@
+-- -- -- from data rakamin-kf-analytics-458515.kimia_farma.kf_abc1; buat Top 10 Total transaksi cabang provinsi
+
+
+SELECT
+  provinsi,
+  SUM(price) AS total_transaksi
+FROM
+  `rakamin-kf-analytics-458515`.`kimia_farma`.`kf_abc1`
+GROUP BY
+  provinsi
+ORDER BY
+  total_transaksi DESC
+LIMIT
+  10;
+

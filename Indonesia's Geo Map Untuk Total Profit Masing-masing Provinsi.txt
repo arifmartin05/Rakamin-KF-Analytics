@@ -1,0 +1,10 @@
+-- -- -- -- -- -- from data rakamin-kf-analytics-458515.kimia_farma.kf_abc1; buat Indonesia's Geo Map Untuk Total Profit Masing-masing Provinsi
+
+
+SELECT
+  provinsi,
+  SUM(nett_profit) AS total_profit
+FROM
+  `rakamin-kf-analytics-458515`.`kimia_farma`.`kf_abc1`
+GROUP BY
+  provinsi;
